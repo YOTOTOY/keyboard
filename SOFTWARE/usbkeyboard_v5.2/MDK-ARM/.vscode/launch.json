@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "jlink",
+            "servertype": "jlink",
+            "interface": "swd",
+            "executable": ".\\build\\usbkeyboard_v3.2\\MDK-ARM.elf",
+            "runToMain": true,
+            "device": "STM32F103C8"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "stlink",
+            "servertype": "openocd",
+            "executable": ".\\build\\usbkeyboard_v3.2\\MDK-ARM.elf",
+            "runToMain": true,
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/<target-name>.cfg"
+            ],
+            "svdFile": ".\\.pack\\Keil\\STM32F1xx_DFP.2.3.0\\SVD\\STM32F103xx.svd"
+        }
+    ]
+}
